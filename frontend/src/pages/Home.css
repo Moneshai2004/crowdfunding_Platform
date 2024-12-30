@@ -1,0 +1,30 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    height: 100vh;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    color: #004990;
+    margin-bottom: 20px;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.home-description:last-child {
+    font-weight: bold;
+    color: #0066cc;
+}

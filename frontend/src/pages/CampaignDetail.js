@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import "./CampaignDetail.css";
 
 const CampaignDetail = () => {
   const { id } = useParams();
@@ -46,27 +47,34 @@ const CampaignDetail = () => {
     }
   };
 
-  if (!campaign) return <div>Loading...</div>;
+  if (!campaign) return <div className="loading">Loading...</div>;
 
   return (
-    <div>
-      <h2>{campaign.title}</h2>
-      <p>{campaign.description}</p>
-      <p>Goal: ${campaign.goal}</p>
-      <p>Amount Raised: ${campaign.amountRaised}</p>
-      <p>
-        Creator: {campaign.creator.name} ({campaign.creator.email})
-      </p>
-      <form onSubmit={handleContribute}>
-        <input
-          type="number"
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          required
-        />
-        <button type="submit">Contribute</button>
-      </form>
+    <div className="campaign-detail-container">
+      <div className="campaign-detail-card">
+        <h2 className="campaign-title">{campaign.title}</h2>
+        <p className="campaign-description">{campaign.description}</p>
+        <p className="campaign-goal">Goal: ${campaign.goal}</p>
+        <p className="campaign-raised">
+          Amount Raised: ${campaign.amountRaised}
+        </p>
+        <p className="campaign-creator">
+          Creator: {campaign.creator.name} ({campaign.creator.email})
+        </p>
+        <form onSubmit={handleContribute} className="contribute-form">
+          <input
+            type="number"
+            placeholder="Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            required
+            className="contribute-input"
+          />
+          <button type="submit" className="contribute-button">
+            Contribute
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

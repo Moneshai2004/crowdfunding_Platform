@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Profile.css";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -28,14 +29,23 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
-  if (!user) return <div>Loading...</div>;
+  if (!user) return <div className="loading">Loading...</div>;
 
   return (
-    <div>
-      <h2>Your Profile</h2>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <p>Member Since: {new Date(user.createdAt).toLocaleDateString()}</p>
+    <div className="profile-container">
+      <div className="profile-card">
+        <h2 className="profile-title">Your Profile</h2>
+        <p className="profile-item">
+          Name: <span>{user.name}</span>
+        </p>
+        <p className="profile-item">
+          Email: <span>{user.email}</span>
+        </p>
+        <p className="profile-item">
+          Member Since:{" "}
+          <span>{new Date(user.createdAt).toLocaleDateString()}</span>
+        </p>
+      </div>
     </div>
   );
 };

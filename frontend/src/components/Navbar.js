@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,33 +14,47 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+    <nav className="navbar">
+      <ul className="nav-links">
+        <li className="nav-item">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/campaigns">Campaigns</Link>
+        <li className="nav-item">
+          <Link to="/campaigns" className="nav-link">
+            Campaigns
+          </Link>
         </li>
         {token ? (
           <>
-            <li>
-              <Link to="/create-campaign">Create Campaign</Link>
+            <li className="nav-item">
+              <Link to="/create-campaign" className="nav-link">
+                Create Campaign
+              </Link>
             </li>
-            <li>
-              <Link to="/profile">Profile</Link>
+            <li className="nav-item">
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
             </li>
-            <li>
-              <button onClick={handleLogout}>Logout</button>
+            <li className="nav-item">
+              <button className="nav-button" onClick={handleLogout}>
+                Logout
+              </button>
             </li>
           </>
         ) : (
           <>
-            <li>
-              <Link to="/register">Register</Link>
+            <li className="nav-item">
+              <Link to="/register" className="nav-link">
+                Register
+              </Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
             </li>
           </>
         )}

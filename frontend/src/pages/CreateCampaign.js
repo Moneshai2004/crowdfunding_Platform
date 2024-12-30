@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./CreateCampaign.css";
 
 const CreateCampaign = () => {
   const [formData, setFormData] = useState({
@@ -46,59 +47,73 @@ const CreateCampaign = () => {
   };
 
   return (
-    <div>
-      <h2>Create a New Campaign</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={description}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Goal:</label>
-          <input
-            type="number"
-            name="goal"
-            value={goal}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <label>End Date:</label>
-          <input
-            type="date"
-            name="endDate"
-            value={endDate}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Category:</label>
-          <select name="category" value={category} onChange={onChange} required>
-            <option value="Wind Turbine">Wind Turbine</option>
-            <option value="Hybrid System">Hybrid System</option>
-            <option value="Solar Panel">Solar Panel</option>
-            <option value="Biomass Generator">Biomass Generator</option>
-          </select>
-        </div>
-        <button type="submit">Create Campaign</button>
-      </form>
+    <div className="create-campaign-container">
+      <div className="create-campaign-card">
+        <h2 className="create-campaign-title">Create a New Campaign</h2>
+        <form onSubmit={onSubmit} className="create-campaign-form">
+          <div className="form-group">
+            <label>Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={onChange}
+              required
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Description:</label>
+            <textarea
+              name="description"
+              value={description}
+              onChange={onChange}
+              required
+              className="form-textarea"
+            />
+          </div>
+          <div className="form-group">
+            <label>Goal:</label>
+            <input
+              type="number"
+              name="goal"
+              value={goal}
+              onChange={onChange}
+              required
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>End Date:</label>
+            <input
+              type="date"
+              name="endDate"
+              value={endDate}
+              onChange={onChange}
+              required
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Category:</label>
+            <select
+              name="category"
+              value={category}
+              onChange={onChange}
+              required
+              className="form-select"
+            >
+              <option value="Wind Turbine">Wind Turbine</option>
+              <option value="Hybrid System">Hybrid System</option>
+              <option value="Solar Panel">Solar Panel</option>
+              <option value="Biomass Generator">Biomass Generator</option>
+            </select>
+          </div>
+          <button type="submit" className="create-campaign-button">
+            Create Campaign
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

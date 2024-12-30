@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./Campaigns.css";
 
 const Campaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -21,13 +22,15 @@ const Campaigns = () => {
   }, []);
 
   return (
-    <div>
-      <h2>All Campaigns</h2>
-      <ul>
+    <div className="campaigns-container">
+      <h2 className="campaigns-title">All Campaigns</h2>
+      <ul className="campaigns-list">
         {campaigns.map((campaign) => (
-          <li key={campaign._id}>
-            <Link to={`/campaigns/${campaign._id}`}>{campaign.title}</Link> -
-            Goal: ${campaign.goal}
+          <li key={campaign._id} className="campaign-item">
+            <Link to={`/campaigns/${campaign._id}`} className="campaign-link">
+              {campaign.title}
+            </Link>
+            <span className="campaign-goal"> - Goal: ${campaign.goal}</span>
           </li>
         ))}
       </ul>
